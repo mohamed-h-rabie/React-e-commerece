@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "product"
+    "displayName": "product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,32 +13,34 @@
   "pluginOptions": {},
   "attributes": {
     "productImg": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "productTitle": {
       "type": "string",
       "required": true
     },
     "productPrice": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "productDes": {
       "type": "text",
       "required": true
     },
     "productRating": {
-      "required": true,
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     },
     "productCatogery": {
       "type": "enumeration",
       "enum": [
-        "men",
-        "women"
+        "women",
+        "men"
       ],
       "required": true
     }

@@ -9,13 +9,13 @@
     "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.24.2",
-    "@strapi/plugin-users-permissions": "4.24.2",
-    "@strapi/plugin-i18n": "4.24.2",
-    "@strapi/plugin-cloud": "4.24.2",
-    "better-sqlite3": "8.6.0",
+    "@strapi/plugin-cloud": "4.24.3",
+    "@strapi/plugin-i18n": "4.24.3",
+    "@strapi/plugin-users-permissions": "4.24.3",
+    "@strapi/provider-upload-cloudinary": "^4.24.3",
+    "@strapi/strapi": "4.24.3",
+    "pg": "8.8.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
@@ -25,7 +25,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "14752096-be7f-4e23-8e72-d60746bde79f"
+    "uuid": "63996f00-7b12-460b-ae60-0bd25a393f4a"
   },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",

@@ -28,7 +28,6 @@ const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 function Products() {
-  const [alignment, setAlignment] = useState("left");
   const [open, setOpen] = useState(false);
   const [state, setState] = useState({
     top: false,
@@ -36,9 +35,11 @@ function Products() {
     bottom: false,
     right: false,
   });
-  const { data, error, isLoading } = useGetproductByNameQuery(
-    "products/?populate=*"
-  );
+  const allCatogery = "products/?populate=*";
+  const womencatogery = `products/?populate=*&filters[productCatogery][$eq]=women`;
+  const mencatogery = `products/?populate=*&filters[productCatogery][$eq]=men`;
+  const [catogery, setCatogery] = useState(allCatogery);
+  const { data, error, isLoading } = useGetproductByNameQuery(catogery);
   // console.log(data);
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -50,8 +51,8 @@ function Products() {
 
     setState({ ...state, [anchor]: open });
   };
-  const handleAlignment = (event, newAlignment) => {
-    setAlignment(newAlignment);
+  const handleAlignment = (event, newValue) => {
+    setCatogery(newValue);
   };
   const handleClickOpen = () => {
     setOpen(true);
@@ -80,7 +81,7 @@ function Products() {
         <Box>
           <ToggleButtonGroup
             color="error"
-            value={alignment}
+            value={catogery}
             exclusive
             onChange={handleAlignment}
             aria-label="text alignment"
@@ -93,7 +94,7 @@ function Products() {
             }}
           >
             <ToggleButton
-              value="left"
+              value={allCatogery}
               aria-label="left aligned"
               className="myButton"
               sx={{
@@ -103,7 +104,7 @@ function Products() {
               All Products
             </ToggleButton>
             <ToggleButton
-              value="center"
+              value={mencatogery}
               aria-label="centered"
               className="myButton"
               sx={{
@@ -114,7 +115,7 @@ function Products() {
               MEN category
             </ToggleButton>
             <ToggleButton
-              value="right"
+              value={womencatogery}
               aria-label="right aligned"
               className="myButton"
               sx={{
@@ -151,7 +152,7 @@ function Products() {
                 sx={{
                   height: 277,
                 }}
-                image={`http://localhost:1337${item.attributes.productImg.data[0].attributes.url}`}
+                image={`${item.attributes.productImg.data[0].attributes.url}`}
               />
               <CardContent>
                 <Stack
