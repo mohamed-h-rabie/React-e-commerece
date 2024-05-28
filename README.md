@@ -1,1 +1,1 @@
-React E-commerece full stack with strapi
+React E-commerce project with Backend(strapi)
