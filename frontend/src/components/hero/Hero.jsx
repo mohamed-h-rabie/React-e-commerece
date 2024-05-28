@@ -34,7 +34,7 @@ function Hero() {
           className="mySwiper"
         >
           {mySlider.map((item) => (
-            <SwiperSlide className="parent-slider">
+            <SwiperSlide className="parent-slider" key={item.text}>
               <img src={item.link} alt={item.text} />
               <Box
                 sx={{

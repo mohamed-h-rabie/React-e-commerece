@@ -29,28 +29,28 @@ const Transition = forwardRef(function Transition(props, ref) {
 });
 function Products() {
   const [open, setOpen] = useState(false);
-  const [state, setState] = useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+  // const [state, setState] = useState({
+  //   top: false,
+  //   left: false,
+  //   bottom: false,
+  //   right: false,
+  // });
   const allCatogery = "products/?populate=*";
   const womencatogery = `products/?populate=*&filters[productCatogery][$eq]=women`;
   const mencatogery = `products/?populate=*&filters[productCatogery][$eq]=men`;
   const [catogery, setCatogery] = useState(allCatogery);
-  const { data, error, isLoading } = useGetproductByNameQuery(catogery);
+  const { data, isLoading } = useGetproductByNameQuery(catogery);
   // console.log(data);
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
+  // const toggleDrawer = (anchor, open) => (event) => {
+  //   if (
+  //     event.type === "keydown" &&
+  //     (event.key === "Tab" || event.key === "Shift")
+  //   ) {
+  //     return;
+  //   }
 
-    setState({ ...state, [anchor]: open });
-  };
+  //   setState({ ...state, [anchor]: open });
+  // };
   const handleAlignment = (event, newValue) => {
     setCatogery(newValue);
   };
